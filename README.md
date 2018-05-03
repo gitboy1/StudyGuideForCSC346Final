@@ -101,12 +101,38 @@ HTML links are defined with the `<a>` tag. The link address is specified in the 
 ### 8. Can you represent arrays in XML? 
 Yes
 
+`<numbers type="array">`
+
+`    <value>3</value>`
+
+`    <value>2</value>`
+
+`    <value>1</value>`
+
+`</numbers>`
+
 * If you had an array, how would you simulate it? 
 see: https://stackoverflow.com/questions/6098922/array-definition-in-xml
 
-### 9. Can you use jsoup with XML? 
+### 9. Can you use jsoup with XML? Yes. 
+It seems jsoup is better suited to parsing HTML.
+
 * Should you? 
+There are XML parsers better suited to parsing XML.
+
 ### 10. What is StAX? 
+**Streaming API for XML (StAX)** is an application programming interface (API) to read and write XML documents, originating from the Java programming language community.
+
+Traditionally, XML APIs are either:
+
+* DOM based - the entire document is read into memory as a tree structure for random access by the calling application
+* event based - the application registers to receive events as entities are encountered within the source document.
+Both have advantages: DOM, for example, allows for random access to the document, and event driven algorithm like SAX has a small memory footprint and is typically much faster.
+
+These two access metaphors can be thought of as polar opposites. A tree based API allows unlimited, random access and manipulation, while an event based API is a 'one shot' pass through the source document.
+
+StAX was designed as a median between these two opposites. In the StAX metaphor, the programmatic entry point is a cursor that represents a point within the document. The application moves the cursor forward - 'pulling' the information from the parser as it needs. This is different from an event based API - such as SAX - which 'pushes' data to the application - requiring the application to maintain state between events as necessary to keep track of location within the document. (wikipedia)
+
 ### 11. Coding with StAX. 
 * You will probably want source code, but it is important that you understand what is going on in the sourcecode. 
 * be able to read and extract inner text 
@@ -115,6 +141,71 @@ see: https://stackoverflow.com/questions/6098922/array-definition-in-xml
 * How do you go about adding elements and attributes in StAX? 
 ## json 
 ### 1. What are the similarities and differences between XML and Json? 
+Both JSON and XML can be used to receive data from a web server.
+
+The following JSON and XML examples both defines an employees object, with an array of 3 employees:
+**JSON example:**
+
+`{"employees":[`
+
+`    { "firstName":"John", "lastName":"Doe" },`
+
+`    { "firstName":"Anna", "lastName":"Smith" },`
+
+`    { "firstName":"Peter", "lastName":"Jones" }`
+
+`]}`
+
+**XML example:**
+`<employees>`
+
+`    <employee>`
+
+`        <firstName>John</firstName> <lastName>Doe</lastName>`
+
+`    </employee>`
+
+`    <employee>`
+
+`        <firstName>Anna</firstName> <lastName>Smith</lastName>`
+
+`    </employee>`
+
+`    <employee>`
+
+`        <firstName>Peter</firstName> <lastName>Jones</lastName>`
+
+`    </employee>`
+
+`</employees>`
+
+### JSON is Like XML Because
+* Both JSON and XML are "self describing" (human readable)
+* Both JSON and XML are hierarchical (values within values)
+* Both JSON and XML can be parsed and used by lots of programming languages
+* Both JSON and XML can be fetched with an XMLHttpRequest
+
+### JSON is Unlike XML Because
+* JSON doesn't use end tag
+* JSON is shorter
+* JSON is quicker to read and write
+* JSON can use arrays
+
+### The biggest difference is:
+ XML has to be parsed with an XML parser. JSON can be parsed by a standard JavaScript function. 
+ 
+### Why JSON is Better Than XML
+* XML is much more difficult to parse than JSON.
+* JSON is parsed into a ready-to-use JavaScript object.
+### For AJAX applications, JSON is faster and easier than XML:
+Using XML
+* Fetch an XML document
+* Use the XML DOM to loop through the document
+* Extract values and store in variables
+Using JSON
+* Fetch a JSON string
+* JSON.Parse the JSON string
+ (w3schools)
 ### 2. Key:value Mapping 
 ### 3. nested objects 
 ### 4. array representation 
