@@ -219,5 +219,11 @@ Git is a version control system for tracking changes in computer files and coord
 
 While GitHub is place where all the codes managed with GIT are hosted. "GitHub is a web-based Git repository hosting service, which offers all of the distributed revision control and source code management (SCM) functionality of Git as well as adding its own features." ... GitHub is a hosting service for Git repositories. (quora)
 ### 2. What are the benefits of using GIT? 
-* What are the problems? 
+* Revert the code files back to their previous state
+* Recall and revert the entire project back to its previous state
+* Compare code changes over specific durations of time
+* Find who last modified a piece of code that might be causing an issue or a problem
+* Who introduced a particular issue and when
+
+#### What are the problems? 
 
